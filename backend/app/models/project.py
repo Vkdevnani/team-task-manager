@@ -1,0 +1,9 @@
+from app.db.database import Base
+from sqlalchemy import Column, Integer, String, ForeignKey
+
+class Project(Base):
+    __tablename__ = "projects"
+
+    id = Column(Integer, primary_key = True, index = True)
+    name = Column(String, nullable = False)
+    created_by = Column(Integer, ForeignKey("users.id"))
